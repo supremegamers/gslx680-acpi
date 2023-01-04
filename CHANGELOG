@@ -1,3 +1,7 @@
+0.2.2 (2022-01-04 onitake):
+
+	- Added support for kernel 6.1+ (thanks to fly206 and JBBgameich)
+
 0.2.1 (2016-04-28 onitake):
 
 	- Changed versioning scheme (2.0.0 becomes 0.2.0)
