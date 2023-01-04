@@ -663,10 +663,18 @@ release:
 	return 0;
 }
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 1, 0)
 int gsl_ts_remove(struct i2c_client *client) {
+#else
+void gsl_ts_remove(struct i2c_client *client) {
+#endif
 	/* Power the device off */
 	gsl_ts_power(client, true);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 1, 0)
 	return 0;
+#else
+	return;
+#endif
 }
 
 static int __maybe_unused gsl_ts_suspend(struct device *dev)
