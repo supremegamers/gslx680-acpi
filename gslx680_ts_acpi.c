@@ -491,7 +491,11 @@ static void gsl_ts_power(struct i2c_client *client, bool turnoff)
 	}
 }
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 3, 0)
 static int gsl_ts_probe(struct i2c_client *client, const struct i2c_device_id *id)
+#else
+static int gsl_ts_probe(struct i2c_client *client)
+#endif
 {
 	struct gsl_ts_data *ts;
 	const struct firmware *fw = NULL;
